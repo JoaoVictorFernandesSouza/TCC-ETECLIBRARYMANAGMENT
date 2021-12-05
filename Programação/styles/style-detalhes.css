@@ -1,0 +1,36 @@
+.single-slide>img {
+    min-width: 70%;
+    height: 32rem;
+}
+
+.inner-page-sec-padding-bottom {
+    padding-bottom: 0px;
+}
+
+@media (min-width: 768px) {
+    .inner-page-sec-padding-bottom {
+        padding-bottom: 0px;
+    }
+}
+
+@media (min-width: 768px) {
+    .section-padding {
+        padding-bottom: 0px;
+    }
+
+    .col-lg-7 {
+        display: flex;
+        max-width: 58.333333%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 768px) {
+    .single-slide>img {
+        min-width: 60%;
+        height: 26rem;
+    }
+}
