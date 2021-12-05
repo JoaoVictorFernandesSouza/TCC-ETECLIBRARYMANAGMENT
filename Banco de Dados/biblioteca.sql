@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Ago-2021 às 02:30
--- Versão do servidor: 10.4.18-MariaDB
--- versão do PHP: 8.0.3
+-- Tempo de geração: 06-Dez-2021 às 00:26
+-- Versão do servidor: 10.4.21-MariaDB
+-- versão do PHP: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,18 +31,19 @@ CREATE TABLE `aluno` (
   `rm` int(11) NOT NULL,
   `nome` varchar(120) NOT NULL,
   `email` varchar(180) NOT NULL,
-  `senha` varchar(255) NOT NULL
+  `senha` varchar(255) NOT NULL,
+  `imagem` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `aluno`
 --
 
-INSERT INTO `aluno` (`rm`, `nome`, `email`, `senha`) VALUES
-(0, 'João Victor Fernandes Souza', 'joao@gmail.com', '$2y$10$9DlVuOS47XN1vxX8dFJcB.bzdg.MBjLXMK2p4zKkudtcRKxW7Ieq2'),
-(1, 'João Vitor Kiyoshi Miyazaki', 'joao.kiyoshi@gmail.com', '$2y$10$.PeQEV.dToB95429lJbS.e7KYzmQVGgw2l4oe8L8WgITOj66vS46G'),
-(2, 'Hugo Sanches Padula', 'hugosp@gmail.com', '$2y$10$SNnQpa9BvuZYejkCVxSy/.pu./GzCMD1lV/SzQeXO6cJh/fUCWhR.'),
-(3, 'Henry Ossamu Chida', 'henry.ossamu@gmail.com', '$2y$10$W02PNFfXx7famsIJGrCrJ.kfwsIANrqigYFWZYpEsfLSQGE0ufop.');
+INSERT INTO `aluno` (`rm`, `nome`, `email`, `senha`, `imagem`) VALUES
+(0, 'João Victor Fernandes Souza', 'joao.souza691@etec.sp.gov.br', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'seis'),
+(1, 'João Vitor Kiyoshi Miyazaki', 'joao.miyazaki@etec.sp.gov.br', '51eac6b471a284d3341d8c0c63d0f1a286262a18', 'um'),
+(2, 'Hugo Sanches Padula', 'hugo.padula@etec.sp.gov.br', 'fc1200c7a7aa52109d762a9f005b149abef01479', 'um'),
+(3, 'Henry Ossamu Chida', 'henry.chida@etec.sp.gov.br', '6b9e37933b64bf5a4866f5ca85a1bf692dff5643', 'um');
 
 -- --------------------------------------------------------
 
@@ -152,8 +153,16 @@ CREATE TABLE `locacao` (
   `cod_livro` int(11) NOT NULL,
   `data_locacao` date NOT NULL,
   `data_devolucao` date NOT NULL,
-  `devolvido` tinyint(1) NOT NULL
+  `devolvido` tinyint(1) NOT NULL,
+  `modal` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `locacao`
+--
+
+INSERT INTO `locacao` (`cod_locacao`, `rm`, `cod_livro`, `data_locacao`, `data_devolucao`, `devolvido`, `modal`) VALUES
+(31, 3, 14, '2021-10-25', '2021-10-18', 0, 0);
 
 --
 -- Índices para tabelas despejadas
@@ -193,7 +202,7 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `locacao`
 --
 ALTER TABLE `locacao`
-  MODIFY `cod_locacao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_locacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Restrições para despejos de tabelas
