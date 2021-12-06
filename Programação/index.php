@@ -1703,8 +1703,9 @@ if (isset($_SESSION['aluno_rm']) && isset($_SESSION['aluno_email'])) {
  $data_devolucao = $reg_aluno["data_devolucao"];
  $devolvido = $reg_aluno["devolvido"];
  $modal = $reg_aluno["modal"];
-
- if($data_devolucao < $data_locacao && $modal == 0){ 
+ 
+ $data_atual = date('Y-m-d');
+ if($data_atual > $data_devolucao && $modal == 0){ 
    $sql = "update locacao set modal = 1 where cod_locacao = $cod_locacao;";
    $consulta = mysqli_query($conexao, $sql);
 ?>
