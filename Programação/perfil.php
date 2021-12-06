@@ -51,7 +51,6 @@
     $data_devolucao = $reg_aluno["data_devolucao"];
     $devolvido = $reg_aluno["devolvido"];
     }
-  
 ?>
 
 <head>
@@ -246,7 +245,7 @@
                   <p>Titulo: <?php echo $titulo ?></p>
                   <p>Autor: <?php echo $autor ?></p>
                   <p>Data da locação: <?php echo date("d/m/Y", strtotime($data_locacao)) ?></p>
-                  <p <?php if($data_devolucao < $data_locacao) { ?> style="color: #f72525; font-weight: 600;" <?php } ?> >Data da devolução: <?php echo date("d/m/Y", strtotime($data_devolucao)) ?></p>
+                  <p <?php $data_atual = date('Y-m-d'); if($data_atual > $data_devolucao) { ?> style="color: #f72525; font-weight: 600;" <?php } ?> >Data da devolução: <?php echo date("d/m/Y", strtotime($data_devolucao)) ?></p>
                   <form action="scripts/script_devolucao.php" method="post">
                     <input type="submit" class="btn btn-outline-primary" name="devolver" value="Devolver livro" />
                   </form>
